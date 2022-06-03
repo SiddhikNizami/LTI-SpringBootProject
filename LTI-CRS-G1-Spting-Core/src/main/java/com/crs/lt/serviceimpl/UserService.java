@@ -1,9 +1,8 @@
 package com.crs.lt.serviceimpl;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.UUID;
-
-import org.springframework.stereotype.Service;
 
 import com.crs.lt.beans.Student;
 import com.crs.lt.beans.User;
@@ -15,14 +14,13 @@ import com.crs.lt.daoimpl.UserDaoImpl;
 import com.crs.lt.service.UserServiceInterface;
 import com.crs.lt.util.Utils;
 
-@Service
 public class UserService implements UserServiceInterface{
 	
 	private UserDao userDao = new UserDaoImpl();
 	private StudentService studentService = new StudentService();
 
 	@Override
-	public User userLogin() { 
+	public User userLogin() {
 		boolean credentialCheck = true;
 		User userObj = null;
 		while(credentialCheck) {
@@ -76,7 +74,7 @@ public class UserService implements UserServiceInterface{
 
 	public void createUser(User user,int isApprove,Role role) {
 		user.setUserId(UUID.randomUUID());
-		user.setCreateDate(new Date());
+		user.setCreateDate(LocalDate.now());
 		user.setIsApprove(isApprove);
 		user.setRole(role.name());
 		user.setSession(false);
@@ -153,5 +151,5 @@ public class UserService implements UserServiceInterface{
 		user.setSession(false);
 		return user;
 	}
-	
+
 }

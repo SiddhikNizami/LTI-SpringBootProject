@@ -1,5 +1,6 @@
 package com.crs.lt.beans;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
@@ -8,7 +9,7 @@ public class User {
 	private UUID userId;
 	private String userName;
 	private String password;
-	private Date createDate;
+	private LocalDate createDate;
 	private String role;
 	private int isApprove;
 	private String firstName;
@@ -38,11 +39,11 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public Date getCreateDate() {
+	public LocalDate getCreateDate() {
 		return createDate;
 	}
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
+	public void setCreateDate(LocalDate localDate) {
+		this.createDate = localDate;
 	}
 	public String getRole() {
 		return role;

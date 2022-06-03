@@ -1,14 +1,14 @@
 package com.lt.crs.client;
 
 
-import com.lt.crs.bean.User;
-import com.lt.crs.constants.InputConstants;
-import com.lt.crs.constants.Menu;
-import com.lt.crs.service.ProfessorService;
-import com.lt.crs.service.ProfessorServiceInterface;
-import com.lt.crs.service.UserService;
-import com.lt.crs.service.UserServiceInterface;
-import com.lt.crs.utils.Utils;
+import com.crs.lt.beans.User;
+import com.crs.lt.constants.InputConstants;
+import com.crs.lt.constants.Menu;
+import com.crs.lt.service.ProfessorServiceInterface;
+import com.crs.lt.service.UserServiceInterface;
+import com.crs.lt.serviceimpl.ProfessorService;
+import com.crs.lt.serviceimpl.UserService;
+import com.crs.lt.util.Utils;
 
 /**
  * @author user215

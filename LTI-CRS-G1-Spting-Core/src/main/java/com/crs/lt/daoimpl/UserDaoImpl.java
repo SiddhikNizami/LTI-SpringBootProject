@@ -1,6 +1,7 @@
 package com.crs.lt.daoimpl;
 
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 import com.crs.lt.beans.User;
@@ -32,6 +33,12 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public void saveUser(User user) {
 		DataCollections.users.add(user);
+	}
+	
+	@Override
+	public List<User> getStudentById(List<UUID> studentIds) {
+		return DataCollections.users.stream()
+					.filter(user->studentIds.stream().anyMatch(studentId->user.getUserId().equals(studentId))).collect(Collectors.toList());
 	}
 
 }

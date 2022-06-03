@@ -42,7 +42,7 @@ public class CrsAdminMenu {
 			case 2:
 				courseService.removeCourse();
 				break;
-			case 3:
+			case 3: 
 				professorService.addProfessor();
 				break;
 			case 4:

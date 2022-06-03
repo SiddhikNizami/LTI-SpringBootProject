@@ -1,5 +1,6 @@
 package com.lt.crs.client;
 
+import com.lt.crs.bean.User;
 
 /**
  * @author user215

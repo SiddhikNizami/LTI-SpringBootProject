@@ -8,7 +8,7 @@ import com.crs.lt.serviceimpl.UserService;
 
 public class UserConfig {
 	@Bean(name="userBean")
-    public UserServiceInterface helloWorld() {
+    public UserServiceInterface userService() {
         return new UserService();
     }
 }

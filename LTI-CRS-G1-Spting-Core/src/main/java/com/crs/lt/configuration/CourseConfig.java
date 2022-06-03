@@ -9,7 +9,7 @@ import com.crs.lt.serviceimpl.CourseService;
 public class CourseConfig {
 
 	@Bean(name="courseBean")
-    public CourseServiceInterface helloWorld() {
+    public CourseServiceInterface courseService() {
         return new CourseService();
     }
 }

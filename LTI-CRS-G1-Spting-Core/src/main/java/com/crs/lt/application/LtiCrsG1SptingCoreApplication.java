@@ -17,6 +17,7 @@ import com.crs.lt.serviceimpl.AdminService;
 import com.crs.lt.serviceimpl.CourseService;
 import com.crs.lt.serviceimpl.ProfessorService;
 import com.crs.lt.util.Utils;
+import com.lt.crs.client.CrsWelcomeApplication;
 
 
 @SpringBootApplication
@@ -30,50 +31,50 @@ public class LtiCrsG1SptingCoreApplication {
 	
 	public static void main(String[] args) {
 //		SpringApplication.run(LtiCrsG1SptingCoreApplication.class, args);
-		ApplicationContext context1=SpringApplication.run(AppConfig.class);
+		ApplicationContext context=SpringApplication.run(AppConfig.class);
 		
-		CourseService obj = (CourseService) context1.getBean("courseBean");
-		ProfessorServiceInterface obj1 = (ProfessorServiceInterface) context1.getBean("professorBean");
-		AdminServiceInterface obj2 = (AdminServiceInterface) context1.getBean("adminBean");
+//		CourseService courseService = (CourseService) context.getBean("courseBean");
+//		ProfessorServiceInterface professorSevice = (ProfessorServiceInterface) context.getBean("professorBean");
+//		AdminServiceInterface adminService = (AdminServiceInterface) context.getBean("adminBean");
 		
-		Utils.printStatement(Menu.Title);
-		Utils.printStatement(Menu.Options);
-		Utils.printStatement(Menu.InitialMenu);
-		InputConstants.optionNumber = InputConstants.sc.nextInt();
-		if(InputConstants.optionNumber == 1) {
-			Utils.printStatement("*****WELCOME ADMIN*****");
-			Utils.printStatement(Menu.AdminMenu);
-			InputConstants.optionNumber = InputConstants.sc.nextInt();
-			switch (InputConstants.optionNumber) {
-			case 1:
-				obj.addCourse();
-				break;
-			case 2:
-				obj.removeCourse();
-				break;
-			case 3:
-				obj1.addProfessor();
-				break;
-			case 4:
-				obj2.approveStudents();
-				break;
-			case 5:
-				//generate report card
-				System.out.println("work in progress");
-				break;
-			case 6:
-//				userObj = userService.userLogout(userObj);
-//				isExit = true;
-				break;
-			default:
-				break;
-			}
-		}else {
-			Utils.printStatement("*****Thank You******");
-		}
+		CrsWelcomeApplication welcomeMenu = (CrsWelcomeApplication) context.getBean("welcomeMenu");
+		welcomeMenu.createMenu(context);
 		
 	}
-	
-	
-
 }
+
+//		Utils.printStatement(Menu.Title);
+//		Utils.printStatement(Menu.Options);
+//		Utils.printStatement(Menu.InitialMenu);
+//		InputConstants.optionNumber = InputConstants.sc.nextInt();
+//		if(InputConstants.optionNumber == 1) {
+//			Utils.printStatement("*****WELCOME ADMIN*****");
+//			Utils.printStatement(Menu.AdminMenu);
+//			InputConstants.optionNumber = InputConstants.sc.nextInt();
+//			switch (InputConstants.optionNumber) {
+//			case 1:
+//				courseService.addCourse();
+//				break;
+//			case 2:
+//				courseService.removeCourse();
+//				break;
+//			case 3:
+//				professorSevice.addProfessor();
+//				break;
+//			case 4:
+//				adminService.approveStudents();
+//				break;
+//			case 5:
+//				//generate report card
+//				System.out.println("work in progress");
+//				break;
+//			case 6:
+////				userObj = userService.userLogout(userObj);
+////				isExit = true;
+//				break;
+//			default:
+//				break;
+//			}
+//		}else {
+//			Utils.printStatement("*****Thank You******");
+//		}

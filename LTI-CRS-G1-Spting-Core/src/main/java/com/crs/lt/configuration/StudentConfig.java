@@ -8,7 +8,7 @@ import com.crs.lt.serviceimpl.StudentService;
 
 public class StudentConfig {
 	@Bean(name="studentBean")
-    public StuentServiceInterface helloWorld() {
+    public StuentServiceInterface studentService() {
         return new StudentService();
     }
 }

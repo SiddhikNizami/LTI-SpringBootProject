@@ -1,8 +1,6 @@
 package com.crs.lt.daoimpl;
 
-import java.util.Date;
 import java.util.List;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 import com.crs.lt.beans.User;
@@ -26,21 +24,13 @@ public class UserDaoImpl implements UserDao{
 	@Override
 	public List<User> getAllStudentUser() {
 		List<User> students = DataCollections.users.stream()
-				 .filter(user->user.getRole().equals(Role.Student.name()))
-				 .collect(Collectors.toList());
-return students;
+				.filter(user->user.getRole().equals(Role.Student.name()))
+				.collect(Collectors.toList());
+		return students;
 	}
 
 	@Override
-	public void saveUser(String username, String password, int isApproved, Role role) {
-		User user = new User();
-		user.setUserId(UUID.randomUUID());
-		user.setUserName(username);
-		user.setPassword(password);
-		user.setCreateDate(new Date());
-		user.setIsApprove(isApproved);
-		user.setRole(role.name());
-		user.setSession(false);
+	public void saveUser(User user) {
 		DataCollections.users.add(user);
 	}
 

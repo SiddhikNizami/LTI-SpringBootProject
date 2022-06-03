@@ -8,7 +8,7 @@ import com.crs.lt.serviceimpl.AdminService;
 
 public class AdminConfig {
 	@Bean(name="adminBean")
-    public AdminServiceInterface helloWorld() {
+    public AdminServiceInterface adminService() {
         return new AdminService();
     }
 }

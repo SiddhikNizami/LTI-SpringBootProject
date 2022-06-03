@@ -3,6 +3,8 @@ package com.crs.lt.serviceimpl;
 import java.util.Date;
 import java.util.UUID;
 
+import org.springframework.stereotype.Service;
+
 import com.crs.lt.beans.Student;
 import com.crs.lt.beans.User;
 import com.crs.lt.constants.DataCollections;
@@ -13,6 +15,7 @@ import com.crs.lt.daoimpl.UserDaoImpl;
 import com.crs.lt.service.UserServiceInterface;
 import com.crs.lt.util.Utils;
 
+@Service
 public class UserService implements UserServiceInterface{
 	
 	private UserDao userDao = new UserDaoImpl();
@@ -41,7 +44,7 @@ public class UserService implements UserServiceInterface{
 	}
 
 	@Override
-	public void registerUser(int isApproved) {
+	public void registerUser() {
 
 		User user = new User();
 		Utils.printStatement("Registeration form");
@@ -60,7 +63,7 @@ public class UserService implements UserServiceInterface{
 		user.setUserName(username);
 		user.setPassword(password);
 		createUser(user,0,Role.Student);
-//		userDao.saveUser(user);
+		userDao.saveUser(user);
 		addStudent(user);
 		Utils.printStatement("User Register successfully");
 	}

@@ -7,7 +7,7 @@ import com.crs.lt.serviceimpl.ProfessorService;
 
 public class ProfessorConfig {
 	@Bean(name="professorBean")
-    public ProfessorServiceInterface helloWorld() {
+    public ProfessorServiceInterface professorService() {
         return new ProfessorService();
     }
 }

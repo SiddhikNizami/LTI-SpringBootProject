@@ -104,7 +104,7 @@ public class User {
 	public void setCountry(String country) {
 		this.country = country;
 	}
-	public boolean isSession() {
+	public boolean getSession() {
 		return session;
 	}
 	public void setSession(boolean session) {

@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Import;
 
 
 @Configuration
-@Import({CourseConfig.class,ProfessorConfig.class,StudentConfig.class,UserConfig.class,AdminConfig.class})
+@Import(WelcomeConfig.class)
 public class AppConfig {
 
 }

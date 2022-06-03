@@ -19,6 +19,8 @@ import com.crs.lt.daoimpl.StudentDaoImpl;
 import com.crs.lt.daoimpl.UserDaoImpl;
 import com.crs.lt.service.ProfessorServiceInterface;
 
+
+
 public class ProfessorService implements ProfessorServiceInterface{
 
 	private ProfessorDao professorDao = new ProfessorDaoImpl();
@@ -40,7 +42,7 @@ public class ProfessorService implements ProfessorServiceInterface{
 			user.setUserName(professor.getName());
 			user.setPassword("Admin@123");
 			userService.createUser(user, 1, Role.Professor);
-//			userDao.saveUser(user);
+			userDao.saveUser(user);
 			System.out.println("Professor successfully added");
 			System.out.println("Press 1 to exit or if you want to continue to add new course press 2");
 			if(InputConstants.sc.nextInt()==1) {
@@ -53,8 +55,8 @@ public class ProfessorService implements ProfessorServiceInterface{
 	public void viewEnrolledStudents(User userObj) {
 		List<Course> courses = courseDao.getCourseByInstructor(userObj.getFirstName());
 		List<Student> students =  studentDao.getStudentsByCourseName(courses.stream().map(Course::getName).collect(Collectors.toList()));
-//		List<User> studentUsers = userDao.getStudentById(students.stream().map(Student::getStudentId).collect(Collectors.toList()));
-		List<User> studentUsers = null;
+		List<User> studentUsers = userDao.getStudentById(students.stream().map(Student::getStudentId).collect(Collectors.toList()));
+
 		System.out.printf("%10s %10s","StudentName","Subject");
 		System.out.println();
 		studentUsers.stream().forEach(studentUser->{
@@ -78,4 +80,5 @@ public class ProfessorService implements ProfessorServiceInterface{
 		System.out.println("Press 1 for go back");
 		InputConstants.sc.nextInt();
 	}
+
 }

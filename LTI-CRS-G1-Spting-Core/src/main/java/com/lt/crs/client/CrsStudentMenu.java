@@ -7,7 +7,6 @@ import com.crs.lt.constants.InputConstants;
 import com.crs.lt.constants.Menu;
 import com.crs.lt.service.UserServiceInterface;
 import com.crs.lt.serviceimpl.StudentService;
-import com.crs.lt.serviceimpl.UserService;
 import com.crs.lt.util.Utils;
 
 /**
@@ -20,8 +19,12 @@ public class CrsStudentMenu {
 	
 	@Autowired
 	private UserServiceInterface userService;
-	private StudentService stdService = new StudentService();
-	private CrsPaymentMenu paymentMenu = new CrsPaymentMenu();
+	
+	@Autowired
+	private StudentService stdService;
+	
+	@Autowired
+	private CrsPaymentMenu paymentMenu;
 	//private CourseService courseService = new CourseService();
 	/*
 	 * Student menu
